@@ -1,17 +1,21 @@
 <template>
-    <div class="autocomplete">
+    <div class="autocomplete" v-click-outside="clickedOutside">
         <input
+                ref="val"
                 :placeholder="placeholder"
                 @input="changed"
+                @focus="gotFocus()"
                 class="autocomplete__input"
                 type="text" >
-        <div class="autocomplete__wrapper">
+        <div :class="{
+                  'autocomplete__wrapper': true,
+                  'autocomplete__wrapper--hidden': !active
+                }">
           <slot name="options" :options="options">
             <ul class="autocomplete__options">
-              <li v-for="option in options">{{option}}</li>
+              <li class="autocomplete__option" @click="select(option)" v-for="option in options">{{option}}</li>
             </ul>
           </slot>
-          <slot name="child2" secondmsg="text2"></slot>
         </div>
     </div>
 </template>
@@ -19,15 +23,14 @@
 <script>
   import debounce from 'lodash.debounce'
   import axios from 'axios'
+  import clickOutside from './directives/clickOutside'
+
   export default {
     name: 'Autocomplete',
     data () {
       return {
         options: [],
-        name: 'isalm',
-        defaultSlotText: "I'll get rendered inside the default slot.",
-        namedSlotText: "I'll get rendered inside the *best* slot."
-
+        active: false,
       }
     },
     props: {
