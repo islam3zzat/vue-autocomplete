@@ -1,9 +1,9 @@
 {
-  "name": "vue-autocomplete",
+  "name": "vue-autocompleter",
   "version": "1.0.0",
   "description": "yet another autocomplete plugin",
   "author": "islam3zzat <islam3zzat@gmail.com>",
-  "private": true,
+  "private": false,
   "main": "module/vue-autocomplete.js",
   "scripts": {
     "dev": "node build/dev-server.js",
