@@ -4,6 +4,7 @@
   "description": "yet another autocomplete plugin",
   "author": "islam3zzat <islam3zzat@gmail.com>",
   "private": true,
+  "main": "module/vue-autocomplete.js",
   "scripts": {
     "dev": "node build/dev-server.js",
     "start": "node build/dev-server.js",
