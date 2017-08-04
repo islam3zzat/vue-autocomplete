@@ -48,9 +48,40 @@
         type: String,
         default: 'GET'
       },
+      closeOnSelect: {
+        type: Boolean,
+        default: true
+      },
+      resetOnSelect: {
+        type: Boolean,
+        default: true
+      },
       path: undefined
     },
+    mounted(){
+
+    },
     methods: {
+      /**
+       * deavtivate options once clicked outside
+       */
+      clickedOutside(){
+        if(this.active) {
+          this.active = false
+        }
+
+      },
+      /**
+       * sets options active on click
+       */
+      gotFocus(){
+        if(!this.active) this.active = true
+        this.$refs.val.setSelectionRange(0, this.value.length)
+
+      },
+      /**
+       * request options once input changed
+       */
       changed: debounce(function(e) {
         const value = e.target.value
         this.$emit('input', value)
