@@ -73,6 +73,11 @@
           this.options = options
         })
       }, 300)
+    /**
+     * include required directives
+     */
+    directives: {
+      clickOutside
     }
   }
 </script>
