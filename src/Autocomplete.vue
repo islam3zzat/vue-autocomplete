@@ -72,7 +72,21 @@
           }
           this.options = options
         })
-      }, 300)
+      }, 300),
+      /**
+      * select option
+      */
+      select(option){
+        this.$refs.val.value = option
+        this.$emit('input', option)
+        if(this.closeOnSelect){
+          this.active = false
+        }
+        if(this.resetOnSelect){
+          this.options = []
+        }
+      }
+    },
     /**
      * include required directives
      */
