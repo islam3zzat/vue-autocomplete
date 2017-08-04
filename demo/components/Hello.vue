@@ -31,7 +31,7 @@ export default {
   },
   methods: {
     path(res){
-      return res.data.items.map(i => i.name)
+      return res.data.items.map(i => i.full_name)
     }
 
   }
