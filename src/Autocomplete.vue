@@ -89,13 +89,26 @@
     /*left: 0;*/
   }
   .autocomplete__wrapper{
-  }
-  .autocomplete__options{
     position: absolute;
-    top: 30px;
-    list-style-type: none;
-    background-color: gray;
     max-height: 200px;
     overflow: auto;
+  }
+  .autocomplete__wrapper--hidden{
+    display: none;
+  }
+
+  .autocomplete__options{
+    list-style-type: none;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 0 20px 0 20px;
+    border-radius: 3px;
+  }
+  .autocomplete__option{
+    cursor: pointer;
+    margin-bottom: 5px;
+  }
+  .autocomplete__option:first-child{
+    padding-top: 20px;
   }
 </style>
