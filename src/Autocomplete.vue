@@ -78,5 +78,23 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
+  .autocomplete{
+    position: relative;
+    margin: auto;
+    width: 50%;
+  }
+  .autocomplete__input{
+    /*top: 0;*/
+    /*left: 0;*/
+  }
+  .autocomplete__wrapper{
+  }
+  .autocomplete__options{
+    position: absolute;
+    top: 30px;
+    list-style-type: none;
+    background-color: gray;
+    max-height: 200px;
+    overflow: auto;
+  }
 </style>
