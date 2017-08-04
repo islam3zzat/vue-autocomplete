@@ -1,12 +1,13 @@
 <template>
-    <div>
+    <div class="autocomplete">
         <input
                 :placeholder="placeholder"
                 @input="changed"
+                class="autocomplete__input"
                 type="text" >
-        <div>
+        <div class="autocomplete__wrapper">
           <slot name="options" :options="options">
-            <ul>
+            <ul class="autocomplete__options">
               <li v-for="option in options">{{option}}</li>
             </ul>
           </slot>
