@@ -1,12 +1,18 @@
 <template>
   <div id="app">
-    <router-view></router-view>
+    <img src="./assets/logo.png">
+    <hello></hello>
   </div>
 </template>
 
 <script>
+import Hello from './components/Hello'
+
 export default {
-  name: 'app'
+  name: 'app',
+  components: {
+    Hello
+  }
 }
 </script>
 
@@ -19,13 +25,4 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
-
-h1, h2 {
-  font-weight: normal;
-}
-
-a {
-  color: #333;
-}
-
 </style>
