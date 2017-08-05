@@ -1,22 +1,24 @@
 <template>
-    <div class="autocomplete" v-click-outside="clickedOutside">
-        <input
-                ref="val"
-                :placeholder="placeholder"
-                @input="changed"
-                @focus="gotFocus()"
-                class="autocomplete__input"
-                type="text" >
-        <div :class="{
-                  'autocomplete__wrapper': true,
-                  'autocomplete__wrapper--hidden': !active
-                }">
-          <slot name="options" :options="options">
-            <ul class="autocomplete__options">
-              <li class="autocomplete__option" @click="select(option)" v-for="option in options">{{option}}</li>
-            </ul>
-          </slot>
-        </div>
+  <div class="autocomplete" v-click-outside="clickedOutside">
+      <input
+        :style="inputStyles"
+        ref="val"
+        :placeholder="placeholder"
+        @input="changed"
+        @focus="gotFocus()"
+        :class="{[inputClass]: inputClass}"
+        type="text" >
+
+      <ul :style="optionsStyles" :class="{
+        'autocomplete__options': true,
+        'autocomplete__options--hidden': !active,
+        [optionsClass]: optionsClass
+      }">
+        <li :style="optionStyles" :class="{
+          autocomplete__option: true,
+          [optionClass]: optionClass
+        }" @click="select(option)" v-for="option in options">{{option}}</li>
+      </ul>
     </div>
 </template>
 
@@ -59,7 +61,13 @@
         type: Boolean,
         default: true
       },
-      path: undefined
+      path: null,
+      optionsStyles: null,
+      optionStyles: null,
+      inputStyles: null,
+      optionsClass: String,
+      optionClass: String,
+      inputClass: String,
     },
     mounted(){
 
@@ -134,34 +142,34 @@
 <style scoped>
   .autocomplete{
     position: relative;
-    margin: auto;
-    width: 50%;
-  }
-  .autocomplete__input{
-    /*top: 0;*/
-    /*left: 0;*/
+    display: inline-block;
   }
   .autocomplete__wrapper{
-    position: absolute;
-    max-height: 200px;
-    overflow: auto;
+
   }
-  .autocomplete__wrapper--hidden{
+  .autocomplete__options--hidden{
     display: none;
   }
 
   .autocomplete__options{
-    list-style-type: none;
+    margin-top: 0;
+    position: absolute;
+    max-height: 200px;
+    min-width: 160px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
     background-color: rgba(0, 0, 0, 0.5);
-    color: white;
     padding: 0 20px 0 20px;
     border-radius: 3px;
+    overflow: auto;
+    list-style-type: none;
+    color: white;
   }
   .autocomplete__option{
     cursor: pointer;
     margin-bottom: 5px;
   }
   .autocomplete__option:first-child{
-    padding-top: 20px;
+    padding-top: 10px;
   }
+
 </style>
