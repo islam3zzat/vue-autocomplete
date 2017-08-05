@@ -17,7 +17,11 @@
         <li :style="optionStyles" :class="{
           autocomplete__option: true,
           [optionClass]: optionClass
-        }" @click="select(option)" v-for="option in options">{{option}}</li>
+        }" @click="select(option)" v-for="(option, index) in options">
+            <slot :option="option" :index="index">
+                {{option}}
+            </slot>
+        </li>
       </ul>
     </div>
 </template>
