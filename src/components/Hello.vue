@@ -3,6 +3,12 @@
     <Autocomplete
       :path="path"
       v-model="msg">
+      <template  scope="{option, index}">
+        <div class="option">
+          <strong>{{index}}</strong>
+          <span>{{option}}</span>
+        </div>
+      </template>
     </Autocomplete>
     <h1>{{ msg }}</h1>
     <h2>Essential Links</h2>
