@@ -1,5 +1,5 @@
 <template>
-  <div class="autocomplete" v-click-outside="clickedOutside">
+  <div class="vue-autocomplete" v-click-outside="clickedOutside">
       <input
         :style="inputStyles"
         ref="val"
@@ -10,12 +10,12 @@
         type="text" >
 
       <ul :style="optionsStyles" :class="{
-        'autocomplete__options': true,
-        'autocomplete__options--hidden': !active,
+        'vue-autocomplete__options': true,
+        'vue-autocomplete__options--hidden': !active,
         [optionsClass]: optionsClass
       }">
         <li :style="optionStyles" :class="{
-          autocomplete__option: true,
+          'vue-autocomplete__option': true,
           [optionClass]: optionClass
         }" @click="select(option)" v-for="(option, index) in options">
             <slot :option="option" :index="index">
@@ -144,18 +144,18 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-  .autocomplete{
+  .vue-autocomplete{
     position: relative;
     display: inline-block;
   }
-  .autocomplete__wrapper{
+  .vue-autocomplete__wrapper{
 
   }
-  .autocomplete__options--hidden{
+  .vue-autocomplete__options--hidden{
     display: none;
   }
 
-  .autocomplete__options{
+  .vue-autocomplete__options{
     margin-top: 0;
     position: absolute;
     max-height: 200px;
@@ -168,11 +168,11 @@
     list-style-type: none;
     color: white;
   }
-  .autocomplete__option{
+  .vue-autocomplete__option{
     cursor: pointer;
     margin-bottom: 5px;
   }
-  .autocomplete__option:first-child{
+  .vue-autocomplete__option:first-child{
     padding-top: 10px;
   }
 
