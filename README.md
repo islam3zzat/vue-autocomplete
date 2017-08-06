@@ -34,12 +34,6 @@ Vue.use(Autocomplete)
   :inputClass=<inputClass>
   v-model=<msg>
   >
-  <template  scope="{option, index}">
-    <div class="option">
-      <strong>{{index}}</strong>
-      <span>{{option}}</span>
-    </div>
-  </template>
 </Autocomplete>
 ```
 
@@ -60,6 +54,20 @@ Vue.use(Autocomplete)
 | inputClass    | String         | input class | null |
 | optionsClass  | String         | input class | null |
 | optionClass   | String         | input class | null |
+
+## Customize option
+You can customize how the option will be displayed by adding your template
+```html
+<!-- example -->
+  <template  scope="{option, index}">
+    <div class="option">
+      <strong>{{index}}</strong>
+      <span>{{option}}</span>
+    </div>
+  </template>
+
+```
+
 
 ## Build Setup
 
