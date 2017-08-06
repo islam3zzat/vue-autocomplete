@@ -2,6 +2,65 @@
 
 > yet another autocomplete plugin
 
+## Installing
+```bash
+# using yarn
+yarn add vue-autocompleter
+# using npm
+npm install --save vue-autocompleter
+```
+``` javascript
+# in main.js for example
+// ...
+import Autocomplete 'vue-autocomplete'
+// ...
+Vue.use(Autocomplete)
+```
+## Usage
+``` html
+<Autocomplete
+  :placeholder=<placeholder>
+  :path=<path>
+  :api=<api>
+  :param=<param>
+  :method=<method>
+  :closeOnSelect=<closeOnSelect>
+  :resetOnSelect=<resetOnSelect>
+  :optionsStyles=<optionsStyles>
+  :optionStyles=<optionStyles>
+  :inputStyles=<inputStyles>
+  :optionsClass=<optionsClass>
+  :optionClass=<optionClass>
+  :inputClass=<inputClass>
+  v-model=<msg>
+  >
+  <template  scope="{option, index}">
+    <div class="option">
+      <strong>{{index}}</strong>
+      <span>{{option}}</span>
+    </div>
+  </template>
+</Autocomplete>
+```
+
+## Documentation
+
+| Prop          |  Type          |      Description      |  Default value |
+|---------------|:--------------:|:---------------------|:---------------|
+| placeholder   | String         | input Placeholder     | Placeholder    |
+| path          | Function       | transformer function to map response to the desired option|null |
+| api           | String         | api endpoint          | https://api.github.com/search/repositories (As demo) |
+| param         | String         | param for search value| q (demo)|
+| method        | String         | Api http method       | GET|     
+| closeOnSelect | Boolean        | Close dropdown once select an element | true |
+| resetOnSelect | Boolean        | Reset dropdown once select an element | true |
+| inputStyles   | Object         | inline styles for input |{}|
+| optionsStyles | Object         | inline styles for options |{}|
+| optionStyles  | Object         | inline styles for option item |{}|
+| inputClass    | String         | input class | null |
+| optionsClass  | String         | input class | null |
+| optionClass   | String         | input class | null |
+
 ## Build Setup
 
 ``` bash
@@ -27,4 +86,3 @@ npm run e2e
 npm test
 ```
 
-For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
