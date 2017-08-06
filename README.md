@@ -1,4 +1,4 @@
-# vue-autocomplete
+# vue-autocompleter
 
 > yet another autocomplete plugin
 
