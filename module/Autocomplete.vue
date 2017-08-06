@@ -4,6 +4,7 @@
         :style="inputStyles"
         ref="val"
         :placeholder="placeholder"
+        :limit="limit"
         @input="changed"
         @focus="gotFocus()"
         :class="{[inputClass]: inputClass}"
@@ -45,6 +46,10 @@
         default: 'Placeholder'
       },
       value: String,
+      limit: {
+        type: Number,
+        default: 5
+      },
       api: {
         type: String,
         default: 'https://api.github.com/search/repositories'
@@ -116,7 +121,7 @@
           } else {
             options = res
           }
-          this.options = options
+          this.options = options.slice(0, this.limit)
         })
       }, 300),
       /**
