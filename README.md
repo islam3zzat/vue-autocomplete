@@ -12,7 +12,7 @@ npm install --save vue-autocompleter
 ``` javascript
 # in main.js for example
 // ...
-import Autocomplete 'vue-autocomplete'
+import Autocomplete 'vue-autocompleter'
 // ...
 Vue.use(Autocomplete)
 ```
