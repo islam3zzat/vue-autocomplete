@@ -2,7 +2,7 @@
   "name": "vue-autocompleter",
   "version": "0.0.13",
   "description": "yet another autocomplete plugin",
-  "author": "islam3zzat <islam3zzat@gmail.com>",
+  "contributors": ["islam3zzat <islam3zzat@gmail.com>", "ahmed <ahmadpx@hotmail.com>"],
   "private": false,
   "main": "module/vue-autocomplete.js",
   "scripts": {
