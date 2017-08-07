@@ -36,7 +36,7 @@
     data () {
       return {
         options: [],
-        active: false,
+        active: false
       }
     },
     props: {
@@ -91,23 +91,22 @@
       /**
        * deavtivate options once clicked outside
        */
-      clickedOutside(){
-        if(this.active) {
+      clickedOutside () {
+        if (this.active) {
           this.active = false
         }
       },
       /**
        * sets options active on click
        */
-      gotFocus(){
-        if(!this.active) this.active = true
+      gotFocus () {
+        if (!this.active) this.active = true
         this.$refs.val.setSelectionRange(0, this.value.length)
-
       },
       /**
        * request options once input changed
        */
-      changed: debounce(function(e) {
+      changed: debounce(function (e) {
         const value = e.target.value
         this.$emit('input', value)
         axios({
@@ -119,7 +118,7 @@
         }).then(res => {
           const path = this.path
           let options
-          if(typeof path === 'string') {
+          if (typeof path === 'string') {
             options = res[path]
           } else if (typeof path === 'function') {
             options = path(res)
@@ -132,13 +131,13 @@
       /**
       * select option
       */
-      select(option){
+      select (option) {
         this.$refs.val.value = option
         this.$emit('input', option)
-        if(this.closeOnSelect){
+        if (this.closeOnSelect) {
           this.active = false
         }
-        if(this.resetOnSelect){
+        if (this.resetOnSelect) {
           this.options = []
         }
       }

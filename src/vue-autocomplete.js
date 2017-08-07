@@ -11,7 +11,7 @@ import Autocomplete from './Autocomplete.vue'
  * Plugin API
  */
 vueAutocomplete.install = function (Vue, options) {
-  Vue.component(Autocomplete.name , Autocomplete)
+  Vue.component(Autocomplete.name, Autocomplete)
   // Add global method or property
   Vue.myGlobalMethod = function () {
    // something logic ...
@@ -35,7 +35,6 @@ vueAutocomplete.install = function (Vue, options) {
   Vue.prototype.$myMethod = function (options) {
    // something logic ...
   }
-
 }
 
 /**
