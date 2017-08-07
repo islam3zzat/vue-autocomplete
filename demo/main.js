@@ -2,7 +2,7 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import App from './App'
-import vueAutocomplete from '../module/vue-autocomplete.js'
+import vueAutocomplete from '../src/vue-autocomplete.js'
 Vue.config.productionTip = false
 Vue.use(vueAutocomplete)
 
