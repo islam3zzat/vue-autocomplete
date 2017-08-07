@@ -65,16 +65,27 @@
         type: Boolean,
         default: true
       },
-      path: null,
-      optionsStyles: null,
-      optionStyles: null,
-      inputStyles: null,
-      optionsClass: String,
-      optionClass: String,
-      inputClass: String,
-    },
-    mounted(){
-
+      path: {
+        type: Function
+      },
+      optionsStyles: {
+        type: Object
+      },
+      optionStyles: {
+        type: Object
+      },
+      inputStyles: {
+        type: Object
+      },
+      optionsClass: {
+        type: String
+      },
+      optionClass: {
+        type: String
+      },
+      inputClass: {
+        type: String
+      }
     },
     methods: {
       /**
@@ -84,7 +95,6 @@
         if(this.active) {
           this.active = false
         }
-
       },
       /**
        * sets options active on click
