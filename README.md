@@ -20,6 +20,7 @@ Vue.use(Autocomplete)
 ``` html
 <Autocomplete
   :placeholder=<placeholder>
+  :limit=<limit>
   :path=<path>
   :api=<api>
   :param=<param>
@@ -42,10 +43,11 @@ Vue.use(Autocomplete)
 | Prop          |  Type          |      Description      |  Default value |
 |---------------|:--------------:|:---------------------|:---------------|
 | placeholder   | String         | input Placeholder     | Placeholder    |
+| limit         | Number         | results limit         | 5              |
 | path          | Function       | transformer function to map response to the desired option|null |
 | api           | String         | api endpoint          | https://api.github.com/search/repositories (As demo) |
 | param         | String         | param for search value| q (demo)|
-| method        | String         | Api http method       | GET|     
+| method        | String         | Api http method       | GET|
 | closeOnSelect | Boolean        | Close dropdown once select an element | true |
 | resetOnSelect | Boolean        | Reset dropdown once select an element | true |
 | inputStyles   | Object         | inline styles for input |{}|

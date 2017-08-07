@@ -2,6 +2,7 @@
   <div class="hello">
     <Autocomplete
       :path="path"
+      :limit="3"
       v-model="msg">
       <template  scope="{option, index}">
         <div class="option">
