@@ -73,6 +73,9 @@
       path: {
         type: Function
       },
+      beforeApiCall: {
+        type: Function
+      },
       optionsStyles: {
         type: Object
       },
