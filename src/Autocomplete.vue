@@ -79,6 +79,9 @@
       afterApiResponse: {
         type: Function
       },
+      beforeUpdateValue: {
+        type: Function
+      },
       optionsStyles: {
         type: Object
       },
