@@ -126,7 +126,7 @@
       changed: debounce(function (e) {
         const value = e.target.value
         if (this.beforeApiCall) {
-          this.beforeApiCall()
+          this.beforeApiCall(this.api, value)
         }
         axios({
           method: this.method,
@@ -156,11 +156,11 @@
       select (option) {
         this.$refs.val.value = option
         if (this.beforeUpdateValue) {
-          this.beforeUpdateValue()
+          this.beforeUpdateValue(option)
         }
         this.$emit('input', option)
         if (this.afterUpdateValue) {
-          this.afterUpdateValue()
+          this.afterUpdateValue(option)
         }
         if (this.closeOnSelect) {
           this.active = false
