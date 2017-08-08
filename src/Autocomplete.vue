@@ -125,6 +125,9 @@
        */
       changed: debounce(function (e) {
         const value = e.target.value
+        if (this.beforeApiCall) {
+          this.beforeApiCall()
+        }
         axios({
           method: this.method,
           url: this.api,
