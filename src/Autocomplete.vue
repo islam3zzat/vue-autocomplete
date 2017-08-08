@@ -82,6 +82,9 @@
       beforeUpdateValue: {
         type: Function
       },
+      afterUpdateValue: {
+        type: Function
+      },
       optionsStyles: {
         type: Object
       },
