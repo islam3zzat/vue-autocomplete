@@ -73,6 +73,18 @@
       path: {
         type: Function
       },
+      beforeApiCall: {
+        type: Function
+      },
+      afterApiResponse: {
+        type: Function
+      },
+      beforeUpdateValue: {
+        type: Function
+      },
+      afterUpdateValue: {
+        type: Function
+      },
       optionsStyles: {
         type: Object
       },
