@@ -154,6 +154,9 @@
           this.beforeUpdateValue()
         }
         this.$emit('input', option)
+        if(this.afterUpdateValue){
+          this.afterUpdateValue()
+        }
         if (this.closeOnSelect) {
           this.active = false
         }
