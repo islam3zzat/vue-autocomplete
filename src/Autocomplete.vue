@@ -135,6 +135,9 @@
             q: value
           }
         }).then(res => {
+          if (this.beforeApiCall) {
+            this.beforeApiCall(res)
+          }
           const path = this.path
           let options
           if (typeof path === 'string') {
