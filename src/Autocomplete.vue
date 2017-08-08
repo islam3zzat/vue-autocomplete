@@ -150,6 +150,9 @@
       */
       select (option) {
         this.$refs.val.value = option
+        if(this.beforeUpdateValue){
+          this.beforeUpdateValue()
+        }
         this.$emit('input', option)
         if (this.closeOnSelect) {
           this.active = false
