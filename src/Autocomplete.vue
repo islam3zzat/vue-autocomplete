@@ -128,6 +128,7 @@
        */
       changed: debounce(function (e) {
         const value = e.target.value
+        // execute before api hock if available
         if (this.beforeApiCall) {
           this.beforeApiCall(this.api, value)
         }
@@ -138,8 +139,9 @@
             q: value
           }
         }).then(res => {
-          if (this.beforeApiCall) {
-            this.beforeApiCall(res)
+          // execute after api hock if available
+          if (this.afterApiResponse) {
+            this.afterApiResponse(res)
           }
           const path = this.path
           let options
