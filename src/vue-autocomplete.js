@@ -6,7 +6,6 @@
 
 const vueAutocomplete = {}
 import Autocomplete from './Autocomplete.vue'
-
 /**
  * Plugin API
  */

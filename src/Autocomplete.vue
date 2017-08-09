@@ -82,6 +82,9 @@
       beforeUpdateValue: {
         type: Function
       },
+      shouldUpdateValue: {
+        type: Function
+      },
       afterUpdateValue: {
         type: Function
       },
@@ -125,7 +128,10 @@
        */
       changed: debounce(function (e) {
         const value = e.target.value
-        this.$emit('input', value)
+        // execute before api hock if available
+        if (this.beforeApiCall) {
+          this.beforeApiCall(this.api, value)
+        }
         axios({
           method: this.method,
           url: this.api,
@@ -133,6 +139,10 @@
             q: value
           }
         }).then(res => {
+          // execute after api hock if available
+          if (this.afterApiResponse) {
+            this.afterApiResponse(res)
+          }
           const path = this.path
           let options
           if (typeof path === 'string') {
@@ -150,7 +160,20 @@
       */
       select (option) {
         this.$refs.val.value = option
-        this.$emit('input', option)
+        // execute before update value hock if available
+        if (this.beforeUpdateValue) {
+          this.beforeUpdateValue(option)
+        }
+        // execute should update value hock if available
+        if (this.shouldUpdateValue) {
+          this.shouldUpdateValue(option) && this.$emit('input', option)
+        } else {
+          this.$emit('input', option)
+        }
+        // execute after update value hock if available
+        if (this.afterUpdateValue) {
+          this.afterUpdateValue(option)
+        }
         if (this.closeOnSelect) {
           this.active = false
         }
