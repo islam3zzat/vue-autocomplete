@@ -160,10 +160,17 @@
       */
       select (option) {
         this.$refs.val.value = option
+        // execute before update value hock if available
         if (this.beforeUpdateValue) {
           this.beforeUpdateValue(option)
         }
-        this.$emit('input', option)
+        // execute should update value hock if available
+        if (this.shouldUpdateValue) {
+          this.shouldUpdateValue(option) && this.$emit('input', option)
+        } else {
+          this.$emit('input', option)
+        }
+        // execute after update value hock if available
         if (this.afterUpdateValue) {
           this.afterUpdateValue(option)
         }
