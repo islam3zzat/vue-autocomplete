@@ -82,6 +82,9 @@
       beforeUpdateValue: {
         type: Function
       },
+      shouldUpdateValue: {
+        type: Function
+      },
       afterUpdateValue: {
         type: Function
       },
