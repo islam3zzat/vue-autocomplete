@@ -8,6 +8,7 @@
         @input="changed"
         @focus="gotFocus()"
         :class="{[inputClass]: inputClass}"
+        tabindex="-1"
         type="text" >
 
       <ul :style="optionsStyles" :class="{
