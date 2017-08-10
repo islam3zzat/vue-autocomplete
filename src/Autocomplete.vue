@@ -19,7 +19,7 @@
         <li :style="optionStyles" :class="{
           'vue-autocomplete__option': true,
           [optionClass]: optionClass
-        }" @click="select(option)" v-for="(option, index) in options">
+        }" @click="select(option)" v-for="(option, index) in options" :tabindex="index+1">
             <slot :option="option" :index="index">
                 {{option}}
             </slot>
