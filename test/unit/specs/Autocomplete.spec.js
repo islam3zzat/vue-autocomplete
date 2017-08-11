@@ -30,4 +30,19 @@ describe('Autocomplete.vue', () => {
     expect(vm.$el.querySelector('input').value)
       .to.equal('')
   })
+  it('should execute transform function', () => {
+    const Constructor = Vue.extend(Autocomplete)
+    const cb = sinon.spy()
+    const vm = new Constructor({
+      propsData: {
+        transform: cb
+      }
+    }).$mount()
+    const input = vm.$el.querySelector('input')
+    input.value = 'ruby'
+    input.dispatchEvent(new Event('input'))
+    setTimeout(() => {
+      cb.should.have.been.calledOnce()
+    }, 500)
+  })
 })
