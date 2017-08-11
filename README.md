@@ -42,7 +42,7 @@ import Autocomplete 'vue-autocompleter'
 |---------------|:--------------:|:---------------------|:---------------|
 | placeholder   | String         | input Placeholder     | Placeholder    |
 | limit         | Number         | results limit         | 5              |
-| path          | Function       | transformer function to map response to the desired option|null |
+| transform     | Function       | transformer function to map response to the desired option|null |
 | api           | String         | api endpoint          | https://api.github.com/search/repositories (As demo) |
 | param         | String         | param for search value| q (demo)|
 | method        | String         | Api http method       | GET|

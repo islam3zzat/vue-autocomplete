@@ -71,7 +71,7 @@
         type: Boolean,
         default: true
       },
-      path: {
+      transform: {
         type: Function
       },
       beforeApiCall: {
@@ -144,12 +144,12 @@
           if (this.afterApiResponse) {
             this.afterApiResponse(res)
           }
-          const path = this.path
+          const transform = this.transform
           let options
-          if (typeof path === 'string') {
-            options = res[path]
-          } else if (typeof path === 'function') {
-            options = path(res)
+          if (typeof transform === 'string') {
+            options = res[transform]
+          } else if (typeof transform === 'function') {
+            options = transform(res)
           } else {
             options = res
           }

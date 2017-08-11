@@ -1,7 +1,7 @@
 <template>
   <div class="hello">
     <Autocomplete
-      :path="path"
+      :transform="path"
       :limit="3"
       v-model="msg">
       <template  scope="{option, index}">
