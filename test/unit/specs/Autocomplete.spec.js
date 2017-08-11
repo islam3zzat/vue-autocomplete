@@ -45,4 +45,19 @@ describe('Autocomplete.vue', () => {
       cb.should.have.been.calledOnce()
     }, 500)
   })
+  it('should execute beforeApiCall function before api call', () => {
+    const Constructor = Vue.extend(Autocomplete)
+    const cb = sinon.spy()
+    const vm = new Constructor({
+      propsData: {
+        beforeApiCall: cb
+      }
+    }).$mount()
+    const input = vm.$el.querySelector('input')
+    input.value = 'ruby'
+    input.dispatchEvent(new Event('input'))
+    setTimeout(() => {
+      cb.should.have.been.calledOnce()
+    })
+  })
 })
