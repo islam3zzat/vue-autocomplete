@@ -8,6 +8,16 @@ describe('Autocomplete.vue', () => {
     expect(vm.$el.querySelector('input').getAttribute('placeholder'))
       .to.equal('Placeholder')
   })
+  it('should render provided placeholder', () => {
+    const Constructor = Vue.extend(Autocomplete)
+    const vm = new Constructor({
+      propsData: {
+        placeholder: 'weee'
+      }
+    }).$mount()
+    expect(vm.$el.querySelector('input').getAttribute('placeholder'))
+      .to.equal('weee')
+  })
   it('should have no options initially', () => {
     const Constructor = Vue.extend(Autocomplete)
     const vm = new Constructor().$mount()
