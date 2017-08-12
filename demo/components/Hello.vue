@@ -2,6 +2,7 @@
   <div class="hello">
     <Autocomplete
       :transform="path"
+      :api="'https://api.github.com/search/repositories'"
       :limit="3"
       v-model="msg">
       <template  scope="{option, index}">

@@ -52,8 +52,7 @@
         default: 5
       },
       api: {
-        type: String,
-        default: 'https://api.github.com/search/repositories'
+        type: String
       },
       param: {
         type: String,
