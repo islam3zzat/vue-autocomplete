@@ -32,3 +32,16 @@ export const getOptions = (value, transform, {url = '', param = '', otherParams 
     })
   }
 }
+/**
+ * evaluateAfterRespnse hooks
+ * @param res
+ * @param afterSearch
+ * @return Promise
+ */
+export const evaluateResponse = (res, afterSearch) => {
+  if (afterSearch && res) {
+    const mutatedResponse = afterSearch(res)
+    return mutatedResponse || res
+  }
+  return res
+}
