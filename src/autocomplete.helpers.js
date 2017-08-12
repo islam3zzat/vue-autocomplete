@@ -1,6 +1,6 @@
 import axios from 'axios'
 /**
- *
+ * gets autocomplete options
  * @param value search by
  * @param transform transform response
  * @param remoteMeta remote request data
