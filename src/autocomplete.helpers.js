@@ -45,3 +45,21 @@ export const evaluateResponse = (res, afterSearch) => {
   }
   return res
 }
+
+/**
+ * transfor respnse
+ * @param res
+ * @param transform
+ * @return Promise
+ */
+export const transformResponse = (res, transform) => {
+  let options
+  if (typeof transform === 'string') {
+    options = res[transform]
+  } else if (typeof transform === 'function') {
+    options = transform(res)
+  } else {
+    options = res
+  }
+  return options
+}
