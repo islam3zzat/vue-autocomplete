@@ -151,11 +151,6 @@
             beforeSearch: this.beforeApiCall && this.beforeApiCall.bind(this),
             afterSearch: this.beforeApiCall && this.afterApiResponse.bind(this)
           }
-        ).then(res => {
-          // execute after api hock if available
-          if (this.afterApiResponse) {
-            this.afterApiResponse(res)
-          }
           const transform = this.transform
           let options
           if (typeof transform === 'string') {
