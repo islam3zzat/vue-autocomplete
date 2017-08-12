@@ -136,13 +136,21 @@
         if (this.beforeApiCall) {
           this.beforeApiCall(this.api, value)
         }
+        const passedData = {
+          ...this.otherParams,
+          q: value
+        }
+        let params, data
+        if (this.method.toUpperCase() === 'GET') {
+          params = { ...passedData }
+        } else if (this.method.toUpperCase() === 'POST') {
+          data = { ...passedData }
+        }
         axios({
           method: this.method,
           url: this.api,
-          params: {
-            ...this.otherParams,
-            q: value
-          }
+          params,
+          data
         }).then(res => {
           // execute after api hock if available
           if (this.afterApiResponse) {
