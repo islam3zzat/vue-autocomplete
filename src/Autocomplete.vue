@@ -151,16 +151,6 @@
             beforeSearch: this.beforeApiCall && this.beforeApiCall.bind(this),
             afterSearch: this.beforeApiCall && this.afterApiResponse.bind(this)
           }
-          const transform = this.transform
-          let options
-          if (typeof transform === 'string') {
-            options = res[transform]
-          } else if (typeof transform === 'function') {
-            options = transform(res)
-          } else {
-            options = res
-          }
-          this.options = options.slice(0, this.limit)
         })
       }, 300),
       /**
