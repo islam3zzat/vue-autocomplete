@@ -45,6 +45,7 @@ import Autocomplete 'vue-autocompleter'
 | transform     | Function       | transformer function to map response to the desired option|null |
 | api           | String         | api endpoint          | null |
 | param         | String         | param for search value| q (demo)|
+| otherParams   | Object         | other  params passed with the request| {} |
 | method        | String         | Api http method       | GET|
 | closeOnSelect | Boolean        | Close dropdown once select an element | true |
 | resetOnSelect | Boolean        | Reset dropdown once select an element | true |
