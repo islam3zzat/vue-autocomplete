@@ -154,7 +154,7 @@
         )
           .then(res => evaluateResponse(res, this.afterSearch))
           .then(res => transformResponse(res, this.transform))
-        .then((res=[]) => {
+        .then((res = []) => {
           this.options = res.slice(0, this.limit)
         })
       }, 300),
