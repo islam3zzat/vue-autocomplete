@@ -30,8 +30,8 @@
 
 <script>
   import debounce from 'lodash.debounce'
-  import axios from 'axios'
   import clickOutside from './directives/clickOutside'
+  import {getOptions} from './autocomplete.helpers'
 
   export default {
     name: 'Autocomplete',
@@ -54,13 +54,18 @@
       api: {
         type: String
       },
+      source: {
+        type: Array
+      },
       param: {
         type: String,
         default: 'q'
       },
       otherParams: {
         type: Object,
-        default: {}
+        default: function () {
+          return {}
+        }
       },
       method: {
         type: String,
@@ -132,26 +137,21 @@
        */
       changed: debounce(function (e) {
         const value = e.target.value
-        // execute before api hock if available
-        if (this.beforeApiCall) {
-          this.beforeApiCall(this.api, value)
-        }
-        const passedData = {
-          ...this.otherParams,
-          q: value
-        }
-        let params, data
-        if (this.method.toUpperCase() === 'GET') {
-          params = { ...passedData }
-        } else if (this.method.toUpperCase() === 'POST') {
-          data = { ...passedData }
-        }
-        axios({
-          method: this.method,
-          url: this.api,
-          params,
-          data
-        }).then(res => {
+        getOptions(
+          value,
+          this.transform,
+          {
+            url: this.api,
+            param: this.param,
+            otherParams: this.otherParams,
+            method: this.method
+          },
+          this.source,
+          {
+            beforeSearch: this.beforeApiCall && this.beforeApiCall.bind(this),
+            afterSearch: this.beforeApiCall && this.afterApiResponse.bind(this)
+          }
+        ).then(res => {
           // execute after api hock if available
           if (this.afterApiResponse) {
             this.afterApiResponse(res)

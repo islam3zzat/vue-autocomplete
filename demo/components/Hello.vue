@@ -3,6 +3,7 @@
     <Autocomplete
       :transform="path"
       :api="'https://api.github.com/search/repositories'"
+      :source="options"
       :limit="3"
       v-model="msg">
       <template  scope="{option, index}">
@@ -31,6 +32,7 @@
       <li><a href="https://github.com/vuejs/awesome-vue" target="_blank">awesome-vue</a></li>
     </ul>
   </div>
+
 </template>
 
 <script>
@@ -38,7 +40,17 @@ export default {
   name: 'hello',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      msg: 'Welcome to Your Vue.js App',
+      options: [
+        'Lorem ipsum dolor',
+        'sit amet, consectetur',
+        'adipisicing elit. Accusantium',
+        'adipisci architecto corporis',
+        'dolor dolores dolorum, ea eveniet',
+        'inventore modi nemo, nihil, nostrum',
+        ' nulla provident quam quis',
+        ' ullam ut voluptatem voluptates?'
+      ]
     }
   },
   methods: {
