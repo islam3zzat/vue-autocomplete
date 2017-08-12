@@ -31,7 +31,7 @@
 <script>
   import debounce from 'lodash.debounce'
   import clickOutside from './directives/clickOutside'
-  import {getOptions} from './autocomplete.helpers'
+  import {getOptions, evaluateResponse, transformResponse} from './autocomplete.helpers'
 
   export default {
     name: 'Autocomplete',
@@ -151,6 +151,11 @@
             beforeSearch: this.beforeApiCall && this.beforeApiCall.bind(this),
             afterSearch: this.beforeApiCall && this.afterApiResponse.bind(this)
           }
+        )
+          .then(res => evaluateResponse(res, this.afterSearch))
+          .then(res => transformResponse(res, this.transform))
+        .then((res=[]) => {
+          this.options = res.slice(0, this.limit)
         })
       }, 300),
       /**
