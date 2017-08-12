@@ -58,6 +58,10 @@
         type: String,
         default: 'q'
       },
+      otherParams: {
+        type: Object,
+        default: {}
+      },
       method: {
         type: String,
         default: 'GET'
@@ -136,6 +140,7 @@
           method: this.method,
           url: this.api,
           params: {
+            ...this.otherParams,
             q: value
           }
         }).then(res => {
