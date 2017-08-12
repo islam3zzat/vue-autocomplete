@@ -42,7 +42,8 @@ import Autocomplete 'vue-autocompleter'
 |---------------|:--------------:|:---------------------|:---------------|
 | placeholder   | String         | input Placeholder     | Placeholder    |
 | limit         | Number         | results limit         | 5              |
-| transform     | Function       | transformer function to map response to the desired option|null |
+| transform     | [Function, String]  | transformer function to map response to the desired option, or just a string representing key to grap from response
+ |null |
 | api           | String         | api endpoint          | null |
 | param         | String         | param for search value| q (demo)|
 | otherParams   | Object         | other  params passed with the request| {} |
