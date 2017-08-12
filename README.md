@@ -43,7 +43,7 @@ import Autocomplete 'vue-autocompleter'
 | placeholder   | String         | input Placeholder     | Placeholder    |
 | limit         | Number         | results limit         | 5              |
 | transform     | Function       | transformer function to map response to the desired option|null |
-| api           | String         | api endpoint          | https://api.github.com/search/repositories (As demo) |
+| api           | String         | api endpoint          | null |
 | param         | String         | param for search value| q (demo)|
 | method        | String         | Api http method       | GET|
 | closeOnSelect | Boolean        | Close dropdown once select an element | true |
