@@ -1,14 +1,25 @@
 import axios from 'axios'
+
 /**
  * gets autocomplete options
- * @param value search by
- * @param transform transform response
- * @param remoteMeta remote request data
- * @param source source of data
- * @param hooks hooks to evaluate
- * @return {Promise}
+ * @param value
+ * @param url
+ * @param param
+ * @param otherParams
+ * @param method
+ * @param source
+ * @param filterMethod
+ * @param hooks
+ * @return {*}
  */
-export const getOptions = (value, transform, {url = '', param = '', otherParams = {}, method = 'GET'} = {}, {source, filterMethod}, hooks = {}) => {
+export const getOptions = (
+  {
+    value,
+    apiOptions: {url = '', param = '', otherParams = {}, method = 'GET'} = {},
+    sourceOptions: {source, filterMethod} = {},
+    hooks = {}
+  }
+) => {
   // execute before url hock if available
   if (hooks.beforeSearch) {
     hooks.beforeSearch(url, value)
@@ -35,7 +46,7 @@ export const getOptions = (value, transform, {url = '', param = '', otherParams 
       if (filterMethod) {
         return filterMethod(item)
       }
-      return item.indexOf(value) >= 0
+      return item.toLowerCase().indexOf(value.toLowerCase()) >= 0
     }))
   }
 }

@@ -140,29 +140,26 @@
        */
       changed: debounce(function (e) {
         const value = e.target.value
-        getOptions(
-          value,
-          this.transform,
-          {
-            url: this.api,
-            param: this.param,
-            otherParams: this.otherParams,
-            method: this.method
-          },
-          {
-            source: this.source,
-            filterMethod: this.filterMethod
-          },
-          {
-            beforeSearch: this.beforeSearch && this.beforeSearch.bind(this),
-            afterSearch: this.afterSearch && this.afterSearch.bind(this)
-          }
-        )
-        .then(res => evaluateResponse(res, this.afterSearch))
-        .then(res => transformResponse(res, this.transform))
-        .then((res = []) => {
-          this.options = res.slice(0, this.limit)
-        })
+        const apiOptions = {
+          url: this.api,
+          param: this.param,
+          otherParams: this.otherParams,
+          method: this.method
+        }
+        const sourceOptions = {
+          source: this.source,
+          filterMethod: this.filterMethod
+        }
+        const hooks = {
+          beforeSearch: this.beforeSearch && this.beforeSearch.bind(this),
+          afterSearch: this.afterSearch && this.afterSearch.bind(this)
+        }
+        getOptions({value, apiOptions, sourceOptions, hooks})
+          .then(res => evaluateResponse(res, this.afterSearch))
+          .then(res => transformResponse(res, this.transform))
+          .then((res = []) => {
+            this.options = res.slice(0, this.limit)
+          })
       }, 300),
       /**
       * select option
