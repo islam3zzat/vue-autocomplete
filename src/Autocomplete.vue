@@ -82,6 +82,9 @@
       transform: {
         type: Function
       },
+      filterMethod: {
+        type: Function
+      },
       beforeSearch: {
         type: Function
       },
@@ -146,7 +149,10 @@
             otherParams: this.otherParams,
             method: this.method
           },
-          this.source,
+          {
+            source: this.source,
+            filterMethod: this.filterMethod,
+          },
           {
             beforeSearch: this.beforeSearch && this.beforeSearch.bind(this),
             afterSearch: this.afterSearch && this.afterSearch.bind(this)

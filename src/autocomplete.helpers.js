@@ -8,7 +8,7 @@ import axios from 'axios'
  * @param hooks hooks to evaluate
  * @return {Promise}
  */
-export const getOptions = (value, transform, {url = '', param = '', otherParams = {}, method = 'GET'} = {}, source = [], hooks = {}) => {
+export const getOptions = (value, transform, {url = '', param = '', otherParams = {}, method = 'GET'} = {}, {source, filterMethod}, hooks = {}) => {
   // execute before url hock if available
   if (hooks.beforeSearch) {
     hooks.beforeSearch(url, value)
@@ -31,7 +31,12 @@ export const getOptions = (value, transform, {url = '', param = '', otherParams 
       data
     })
   } else if (source) {
-    return Promise.resolve(source.filter(item => item.indexOf(value) >= 0))
+    return Promise.resolve(source.filter(item => {
+      if (filterMethod) {
+        return filterMethod(item)
+      }
+      return item.indexOf(value) >= 0
+    }))
   }
 }
 /**
