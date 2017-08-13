@@ -140,16 +140,19 @@
        */
       changed: debounce(function (e) {
         const value = e.target.value
+        // init api options
         const apiOptions = {
           url: this.api,
           param: this.param,
           otherParams: this.otherParams,
           method: this.method
         }
+        // init provided options
         const sourceOptions = {
           source: this.source,
           filterMethod: this.filterMethod
         }
+        // hooks methods
         const hooks = {
           beforeSearch: this.beforeSearch && this.beforeSearch.bind(this),
           afterSearch: this.afterSearch && this.afterSearch.bind(this)
