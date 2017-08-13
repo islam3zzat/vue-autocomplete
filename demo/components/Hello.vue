@@ -1,8 +1,6 @@
 <template>
   <div class="hello">
     <Autocomplete
-      :transform="path"
-      :api="'https://api.github.com/search/repositories'"
       :source="options"
       :limit="3"
       v-model="msg">

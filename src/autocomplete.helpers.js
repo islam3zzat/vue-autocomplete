@@ -30,6 +30,8 @@ export const getOptions = (value, transform, {url = '', param = '', otherParams 
       params,
       data
     })
+  } else if (source) {
+    return Promise.resolve(source.filter(item => item.indexOf(value) >= 0))
   }
 }
 /**
