@@ -19,7 +19,7 @@ import Autocomplete 'vue-autocompleter'
 <Autocomplete
   :placeholder=<placeholder>
   :limit=<limit>
-  :path=<path>
+  :transform=<path>
   :api=<api>
   :param=<param>
   :method=<method>
