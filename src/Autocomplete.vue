@@ -151,7 +151,7 @@
           },
           {
             source: this.source,
-            filterMethod: this.filterMethod,
+            filterMethod: this.filterMethod
           },
           {
             beforeSearch: this.beforeSearch && this.beforeSearch.bind(this),
