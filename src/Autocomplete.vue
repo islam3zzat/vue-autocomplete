@@ -82,10 +82,10 @@
       transform: {
         type: Function
       },
-      beforeApiCall: {
+      beforeSearch: {
         type: Function
       },
-      afterApiResponse: {
+      afterSearch: {
         type: Function
       },
       beforeUpdateValue: {
@@ -148,8 +148,8 @@
           },
           this.source,
           {
-            beforeSearch: this.beforeApiCall && this.beforeApiCall.bind(this),
-            afterSearch: this.beforeApiCall && this.afterApiResponse.bind(this)
+            beforeSearch: this.beforeSearch && this.beforeSearch.bind(this),
+            afterSearch: this.afterSearch && this.afterSearch.bind(this)
           }
         )
           .then(res => evaluateResponse(res, this.afterSearch))

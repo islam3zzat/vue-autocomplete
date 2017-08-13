@@ -55,8 +55,8 @@ import Autocomplete 'vue-autocompleter'
 | inputClass    | String         | input class | null |
 | optionsClass  | String         | input class | null |
 | optionClass   | String         | input class | null |
-| beforeApiCall | Function       | functions gets called before sending api request, accepts two params (url, query) | null|
-| afterApiResponse | Function       | functions called after api response, accepts one param (response) | null|
+| beforeSearch | Function       | functions gets called before sending api request, accepts two params (url, query) | null|
+| afterSearch | Function       | functions called after api response, accepts one param (response) | null|
 | beforeUpdateValue | Function       | functions called before update value, accepts one param (value) | null|
 | shouldUpdateValue | Function       | functions called before update value, accepts one param (value) and returns boolean wether to update value or not | null|
 | afterUpdateValue | Function       | functions called after update value, accepts one param (value) | null|
