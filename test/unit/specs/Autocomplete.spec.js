@@ -31,6 +31,7 @@ describe('Autocomplete.vue', () => {
       .to.equal('')
   })
   it('should execute transform function', (done) => {
-  
+  })
+  it('should execute afterSearch function', (done) => {
   })
 })
