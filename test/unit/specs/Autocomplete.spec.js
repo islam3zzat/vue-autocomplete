@@ -36,4 +36,6 @@ describe('Autocomplete.vue', () => {
   })
   it('should execute beforeSearch function', (done) => {
   })
+  it('should execute beforeUpdateValue function', (done) => {
+  })
 })
