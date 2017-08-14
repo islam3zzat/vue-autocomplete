@@ -139,7 +139,7 @@
        * request options once input changed
        */
       changed: debounce(function (e) {
-        const value = e.target.value
+        const value = this.$refs.val.value
         // init api options
         const apiOptions = {
           url: this.api,
