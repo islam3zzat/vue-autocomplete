@@ -38,7 +38,20 @@ describe('Autocomplete.vue', () => {
     done()
   })
   it('should execute afterSearch function', (done) => {
-    done()
+    const Constructor = Vue.extend(Autocomplete)
+    const afterSearch = sinon.spy()
+    const vm = new Constructor({
+      propsData: {
+        afterSearch,
+        source: []
+      }
+    }).$mount()
+    vm.$refs.val.value = '1231'
+    vm.$refs.val.dispatchEvent(new Event('input'))
+    setTimeout(() => {
+      expect(afterSearch).to.have.been.calledOnce
+      done()
+    }, 400)
   })
   it('should execute beforeSearch function', (done) => {
     const Constructor = Vue.extend(Autocomplete)
