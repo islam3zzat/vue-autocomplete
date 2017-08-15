@@ -83,7 +83,21 @@ describe('Autocomplete.vue', () => {
     }, 400)
   })
   it('should execute beforeUpdateValue function', (done) => {
-    done()
+    const Constructor = Vue.extend(Autocomplete)
+    const beforeUpdateValue = sinon.spy()
+    const vm = new Constructor({
+      propsData: {
+        beforeUpdateValue,
+        source: ['aww', 'aqq', 'qwqw']
+      }
+    }).$mount()
+    vm.$refs.val.value = 'a'
+    vm.$refs.val.dispatchEvent(new Event('input'))
+    setTimeout(() => {
+      vm.$el.querySelector('li').click()
+      expect(beforeUpdateValue).to.have.been.calledOnce
+      done()
+    }, 400)
   })
   it('should execute afterUpdateValue function', (done) => {
     done()
