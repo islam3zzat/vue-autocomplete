@@ -100,6 +100,20 @@ describe('Autocomplete.vue', () => {
     }, 400)
   })
   it('should execute afterUpdateValue function', (done) => {
-    done()
+    const Constructor = Vue.extend(Autocomplete)
+    const afterUpdateValue = sinon.spy()
+    const vm = new Constructor({
+      propsData: {
+        afterUpdateValue,
+        source: ['aww', 'aqq', 'qwqw']
+      }
+    }).$mount()
+    vm.$refs.val.value = 'a'
+    vm.$refs.val.dispatchEvent(new Event('input'))
+    setTimeout(() => {
+      vm.$el.querySelector('li').click()
+      expect(afterUpdateValue).to.have.been.calledOnce
+      done()
+    }, 400)
   })
 })
