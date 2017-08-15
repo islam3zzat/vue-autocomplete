@@ -35,7 +35,20 @@ describe('Autocomplete.vue', () => {
     done()
   })
   it('should execute transform function', (done) => {
-    done()
+    const Constructor = Vue.extend(Autocomplete)
+    const transform = sinon.spy()
+    const vm = new Constructor({
+      propsData: {
+        transform,
+        source: ['aww', 'aqq', 'qwqw']
+      }
+    }).$mount()
+    vm.$refs.val.value = 'a'
+    vm.$refs.val.dispatchEvent(new Event('input'))
+    setTimeout(() => {
+      expect(transform).to.have.been.calledWith(['aww', 'aqq'])
+      done()
+    }, 400)
   })
   it('should execute afterSearch function', (done) => {
     const Constructor = Vue.extend(Autocomplete)
