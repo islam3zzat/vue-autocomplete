@@ -116,4 +116,20 @@ describe('Autocomplete.vue', () => {
       done()
     }, 400)
   })
+  it('should show relevant options', (done) => {
+    const Constructor = Vue.extend(Autocomplete)
+    const transform = sinon.spy()
+    const vm = new Constructor({
+      propsData: {
+        transform,
+        source: ['Xval 1', 'val 2', 'Xval 3']
+      }
+    }).$mount()
+    vm.$refs.val.value = 'X'
+    vm.$refs.val.dispatchEvent(new Event('input'))
+    setTimeout(() => {
+      expect(transform).to.have.been.calledWith(['Xval 1','Xval 3'])
+      done()
+    }, 400)
+  })
 })
